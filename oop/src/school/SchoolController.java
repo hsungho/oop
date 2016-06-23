@@ -15,22 +15,27 @@ import javax.swing.JOptionPane;
  */
 public class SchoolController {
 	public static void main(String[] args) {
-		Student s = null;
+		StudentService service = new StudentServiceImpl();
+		
 		while (true) {
-			switch (JOptionPane.showInputDialog("1등록 2조회 0종료")) {
+			switch (JOptionPane.showInputDialog("1등록 2보기 3 수정 4 삭제 0종료")) {
 			case "1":
-				String id = JOptionPane.showInputDialog("id");
-
-				String pw = JOptionPane.showInputDialog("pw");
-				String name = JOptionPane.showInputDialog("이름");
-				String ssn = JOptionPane.showInputDialog("주민번호");
-				s = new Student(id, pw, name, ssn,null);
+				String spec = JOptionPane.showInputDialog("id,pw,이름,주민번호");
+				String[] specArr = spec.split(",");
+				service.registStudent(specArr[0],specArr[1],specArr[2],specArr[3]);
 				
 				break;
 			case "2":
-				JOptionPane.showMessageDialog(null,s.getid() + s.getName() + s.getGender());
-				return;
+				JOptionPane.showMessageDialog(null,service.showStudent());
+				break;
 			case "3":
+				
+			 service.updateStudent(JOptionPane.showInputDialog("pw다시입력"));
+			break;
+			case"4":
+			service.deleteStudent();
+				
+				break;
 			case "0":
 				JOptionPane.showConfirmDialog(null, "close, ok");
 				return;

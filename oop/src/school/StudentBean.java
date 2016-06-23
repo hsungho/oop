@@ -10,7 +10,7 @@ package school;
  * @story  :
  
  */
-public class Student {
+public class StudentBean {
 	
 	private String pw,regDate,name,gender,id,ssn;//남 m 여  w
 
@@ -20,7 +20,7 @@ public class Student {
 	
 	
 	
-	public Student(String id,String pw,String name,String ssn,String regDate){
+	public StudentBean(String id,String pw,String name,String ssn){
 		this.id = id;
 		this.pw = pw;
 		this.name = name;

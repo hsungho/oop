@@ -16,29 +16,28 @@ import global.MyConstants;
  */
 public class BankController {
 	public static void main(String[] args) {
-		
-		Account account =null;
+      int ok =0;
+      AccountService service = new AccountServiceImpl();
 		while (true) {
-			switch (JOptionPane.showInputDialog("1통장개설 2,입금 3,조회 4,출금 5,통장내역 6,종료")) {
+			switch (JOptionPane.showInputDialog("1개설 2,입금 3,조회 4,출금 5,통장내역 6,종료")) {
 			case "1":
-				int ok = JOptionPane.showConfirmDialog(null, "통장개설?");
-
-				if (ok == 0) {
-					
-					account = new Account(JOptionPane.showInputDialog("이름:"));
-				} else {
-					continue;
-				}
-			
-				break;
+				String spec = JOptionPane.showInputDialog("이름,id,pw");
+				String[] specArr = spec.split(",");
+				service.openAccount(specArr[0],specArr[1],specArr[2]);
+				 break;
 			case "2":
 				String inputMoney = JOptionPane.showInputDialog("입금액");
-				account.setMoney(Integer.parseInt(inputMoney));
+				service.deposit(Integer.parseInt(inputMoney));
 				break;
 			case "3":
-				JOptionPane.showMessageDialog(null, account.getMoney());
+				//JOptionPane.showMessageDialog(null, account.getMoney());
+				break;
+			case"4":
+				String outputMoney = JOptionPane.showInputDialog("출금액");
+			service.withdraw(Integer.parseInt(outputMoney));
+				break;
 			case "5":
-				JOptionPane.showMessageDialog(null,MyConstants.Bank_Name+ "이름"+account.getName()+"계좌번호:" + account.getaccountNo());
+				JOptionPane.showMessageDialog(null,service.showAccount());
 				break;
 			default:
 				JOptionPane.showConfirmDialog(null, "close, ok");

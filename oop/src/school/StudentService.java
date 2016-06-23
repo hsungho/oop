@@ -11,10 +11,13 @@ package school;
  
  */
 public interface StudentService {
-	public void regist();
-	public void findStudent();
-	public void update();
-	public void delete();
+	//등록
+	public void registStudent(String id,String pw,String name,String ssn);
+	//보기
+	public String showStudent();
+	//수정
+	public void updateStudent(String pw);
+	public void deleteStudent();
 	
 
 }
