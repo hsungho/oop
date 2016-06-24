@@ -8,7 +8,7 @@ package lotto;
  
  */
 public interface LottoBallService {
- public void setLottoBall(LottoBean lot);
+ public void setLottoBall();
  public int[] getLottoBall();
 
 }
