@@ -20,12 +20,12 @@ public class LottoBean {
 	}
 
 	public int getNumber() {
-	
+		this.setNumber();
 		return number;
 	}
 
 	public void setNumber() {
-		this.number = (int)(Math.random()*45+1);; //로또를 구성하는 랜덤 숫자 하나 발생
+		this.number = (int)(Math.random()*45)+1; //로또를 구성하는 랜덤 숫자 하나 발생
 		
 		}
 	

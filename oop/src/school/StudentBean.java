@@ -16,7 +16,9 @@ public class StudentBean {
 
 
 	
-	
+	public StudentBean() {}
+		// TODO Auto-generated constructor stub
+
 	
 	
 	
